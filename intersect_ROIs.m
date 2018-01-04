@@ -4,8 +4,8 @@
 %%%%%%%%%%%%%%%%%%%%%% A. Crimi University of Zurich %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Load atlas and points, it is assumed that those are coregistered and the same voxel size
-points =  load_untouch_nii('points20_swap13.nii.gz');
-atlas =  load_untouch_nii('atlas_reg2.nii.gz');
+points =  load_untouch_nii('points20_swap13.nii.gz');  #TMS points as NIFTI file
+atlas =  load_untouch_nii('atlas_reg2.nii.gz'); #Atlas registered to the TMS points volume
 
 img1 = points.img;
 img2 = atlas.img;
