@@ -1,7 +1,7 @@
 function create_point_vol(input_point,ref_vol)
 
 ref_vol = '20161028_162500s252171407a009_language.nii'
-input_point = 'points20.csv'
+input_point = 'points20.csv' %those are related to the points seen in the file *Above_anatomic
 
 points = csvread(input_point);
 
