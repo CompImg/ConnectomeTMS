@@ -70,7 +70,10 @@ for d in */ ; do
        pwd
        dcm2nii -4 y -n y -v y *.DCM
        mv 2*.nii.gz TMSoriginal.nii.gz  
+       
+       # Change it with matlab
        fslroi TMSoriginal.nii.gz TMSoriginal_c.nii.gz 0 240 85 240 0 170
+       
        bet  TMSoriginal_c.nii.gz    brain.nii.gz -m -f 0.2
        flirt -ref   brain.nii.gz  -in   ../../atlas_swapped.nii.gz -out atlas_reg.nii.gz -cost normmi  -interp nearestneighbour
        cp  ../../*.m .
