@@ -1,11 +1,9 @@
-function create_point_vol(input_point,ref_vol)
-
-ref_vol = '20161028_162500s252171407a009_language.nii'
-input_point = 'points20.csv' %those are related to the points seen in the file *Above_anatomic
+ref_vol = 'TMSoriginal.nii.gz'
+input_point = 'points.csv' %those are related to the points seen in the file *Above_anatomic
 
 points = csvread(input_point);
 
-points(:,1) = 160 -  points(:,1) ;
+points(:,1) = 170 -  points(:,1) ;
 points(:,2) = points(:,2) -10 ;
 points(:,3) = 250 -   points(:,3)   ;
  
@@ -14,9 +12,9 @@ temp = points(:,3);
 points(:,3) = points(:,1);
 points(:,1) = temp;
 
-num_points = 13;
+num_points = length(points);
 
-myvol =  load_untouch_nii();
+myvol =  load_untouch_nii(ref_vol);
 myimm = zeros(size(myvol.img));
 
 for ii = 1 : num_points
@@ -43,9 +41,4 @@ end
 
 
 myvol.img = myimm;
-save_untouch_nii(myvol,'points20_swap13.nii');
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%tobetrimmed =  load_untouch_nii('20161028_162500s252171407a009_language.nii');
-%tobetrimmed.img(:,1:115,:) = 0;
-%save_untouch_nii(tobetrimmed,'trimmed_ref.nii');
+save_untouch_nii(myvol,'points.nii');
